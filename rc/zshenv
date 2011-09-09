@@ -1,0 +1,4 @@
+typeset -U fpath
+if [[ -d $HOME/.zsh/prompt ]] ; then
+	fpath=( $HOME/.zsh/prompt $fpath )
+fi

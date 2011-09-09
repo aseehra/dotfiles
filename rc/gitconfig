@@ -1,0 +1,21 @@
+[core]
+	# search for core.pager in
+	# <http://www.kernel.org/pub/software/scm/git/docs/git-config.html>
+	# to see why we use this convoluted syntax
+	pager = less -$LESS -SFRX -SR
+	excludefile = /home/aseehra/.gitignore_global
+[color]
+	ui = true
+
+[user]
+	name = Arun Seehra
+	email = seehra.a@gmail.com
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	hist = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short
+	hista = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short --all
+	br = branch
+	dump = cat-file -p
+	type = cat-file -t

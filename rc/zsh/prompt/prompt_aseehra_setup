@@ -1,0 +1,39 @@
+# aseehra prompt theme
+
+prompt_aseehra_help () {
+	cat <<'EOF'
+This prompt is color-scheme-safe. You can invoke it thus:
+	prompt aseehra [<promptcolor> [<usercolor> [<rootcolor>]]]
+
+EOF
+}
+
+prompt_aseehra_setup () {
+	prompt_color_base=${1:-'blue'}
+	prompt_color_user=${2:-'green'}
+	prompt_color_root=${3:-'red'}
+
+	if [ "$USER" = 'root' ]
+	then
+		prompt_open="%B%F{$prompt_color_root}[%f"
+		prompt_user="%F{$prompt_color_root}root@%m%f"
+		prompt_close="%F{$prompt_color_root}]%f"
+	else
+		prompt_open="%B%F{$prompt_color_user}[%f"
+		prompt_user="%F{$prompt_color_user}%n@%m%f"
+		prompt_close="%F{$prompt_color_user}]%f"
+	fi
+
+	prompt_path="%F{$prompt_color_base}%1~%f"
+
+	prompt_sep="%(!.#.$)"
+
+	prompt_postfix="%b%f%k"
+
+
+	PS1="$prompt_open$prompt_user:$prompt_path$prompt_close%F{$prompt_color_base}$prompt_sep%f $prompt_postfix"
+	PS2="    %F{$prompt_color_base}%_>%f $prompt_postfix"
+	PS3="    %F{$prompt_color_base}?#%f $prompt_postfix"
+}
+
+prompt_aseehra_setup "$@"

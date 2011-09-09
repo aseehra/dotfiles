@@ -1,0 +1,110 @@
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+   set fileencodings=utf-8,latin1
+endif
+
+set nocompatible	" Use Vim defaults (much better!)
+set bs=2		" allow backspacing over everything in insert mode
+set ai			" always set auto indenting on
+"set backup		" keep a backup file
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+set incsearch
+set nohlsearch               " no highlighting search
+set vb t_vb=
+set showmatch
+			" than 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set noet        " DONT expand tabs!
+set sw=4                " set shift tabwidth to 4
+set ts=4                " set tabstop to 4
+set nowrap              " don't wrap lines
+set backupskip=/tmp/crontab.*
+
+" Enable filetype plugin support
+filetype on
+filetype plugin on
+filetype indent on
+
+" spellcheck crap
+set spell
+set spell spelllang=en_us
+set spellfile=~/.vim/spellfile.add
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=DarkRed
+highlight SpellBad term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap ctermbg=DarkGreen
+
+highlight clear Folded
+highlight Folded ctermfg=DarkCyan
+highlight clear CursorLine
+highlight CursorLine ctermbg=DarkGray
+highlight ColorColumn ctermbg = DarkGray
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt\|*.tex setl tw=78 " In text|tex files, always limit the width of text to 78 characters
+  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt setl et " In text files, expand tabs.
+
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl cin
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl tw=78
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl sw=2
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl ts=2
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl et
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.java setl fdm=syntax
+
+  autocmd BufNewFile,BufRead *.py setl ai
+  autocmd BufNewFile,BufRead *.py setl et " Follow PEP8 convention -- expand tabs
+  autocmd BufNewFile,BufRead *.py setl fdm=indent
+  autocmd BufNewFile,BufRead *.py setl colorcolumn=79
+
+  autocmd BufNewFile,BufRead *.click setl noet
+  autocmd BufNewFile,BufRead *.click highlight clear SpellCap
+
+  autocmd BufNewFile,BufRead *.xml setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.xml setl et
+  autocmd BufNewFile,BufRead *.xml setl sw=2
+  autocmd BufNewFile,BufRead *.xml setl ts=2
+
+  " When editing makefiles, set your shiftwidth correctly
+  autocmd BufNewFile,BufRead Makefile\|*.Makefile setl sw=8
+
+  " When editing code, make spell check less visible
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|*.java\|Makefile\|*.Makefile highlight clear SpellBad
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|*.java\|Makefile\|*.Makefile highlight clear SpellCap
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|Makefile\|*.Makefile highlight SpellBad term=underline cterm=underline
+
+  " When editing a file, always jump to the last cursor position
+  autocmd BufNewFile,BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+endif
+
+if has("cscope")
+   set csprg=/usr/bin/cscope
+   set csto=0
+   set cst
+   set nocsverb
+   " add any database in current directory
+   if filereadable("cscope.out")
+      cs add cscope.out
+   " else add database pointed to by environment
+   elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+   endif
+   set csverb
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  " set hlsearch
+endif
+
+if &term=="xterm"
+     set t_Co=8
+     set t_Sb=[4%dm
+     set t_Sf=[3%dm
+endif
