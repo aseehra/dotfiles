@@ -61,7 +61,7 @@ def append_platform(dir):
     try:
         options.platform
     except AttributeError:
-        return
+        options.platform = 'linux'
 
     suffix = '___' + options.platform
     for file in dir.files('*' + suffix):
