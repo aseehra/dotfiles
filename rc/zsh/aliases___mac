@@ -1,1 +1,5 @@
+alias ls="ls -hG"
+alias l="ls -hlG"
+alias ll="ls -halG"
+
 alias rm="rm -i"

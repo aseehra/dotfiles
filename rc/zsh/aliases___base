@@ -1,7 +1,6 @@
 # Aliases
 
 alias ls='ls -h --color'
-
 alias l='ls -hl --color'
 alias ll='ls -hal --color'
 
