@@ -4,11 +4,21 @@ import itertools
 rc_dir = path(__file__).abspath().parent / 'rc'
 options.base_length = len(rc_dir.splitall())
 
+def checkPlatform():
+    try:
+        options.platform
+    except AttributeError:
+        import sys
+        sys.stderr.write('Error: option "platform" not defined. Please set '
+                         'platform=<linux|mac>\n')
+        sys.exit(1)
+
 @task
 def env():
     '''
     Sets up global environment. Assumes root privileges.
     '''
+    checkPlatform()
     pass
 
 @task
@@ -16,6 +26,7 @@ def rc():
     '''
     '''
     for dir in itertools.chain([rc_dir], rc_dir.walkdirs()):
+        checkPlatform()
         create_dir(dir)
         link_files(dir)
         copy_base_files(dir)
@@ -58,14 +69,10 @@ def link_files(dir):
             print str(error) + ': ' + target
 
 def append_platform(dir):
-    try:
-        options.platform
-    except AttributeError:
-        options.platform = 'linux'
-
     suffix = '___' + options.platform
     for file in dir.files('*' + suffix):
         target = to_dotfile(file, suffix)
         if target is None:
             continue
+        print 'append {} {}'.format(file, target)
         target.write_text(file.text(), append=True)
