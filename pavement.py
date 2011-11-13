@@ -4,29 +4,31 @@ import itertools
 rc_dir = path(__file__).abspath().parent / 'rc'
 options.base_length = len(rc_dir.splitall())
 
-def checkPlatform():
-    try:
-        options.platform
-    except AttributeError:
-        import sys
-        sys.stderr.write('Error: option "platform" not defined. Please set '
-                         'platform=<linux|mac>\n')
-        sys.exit(1)
-
 @task
+@cmdopts([
+    ('platform=', 'p', 'Current platform (<linux|mac>)')
+])
 def env():
     '''
     Sets up global environment. Assumes root privileges.
     '''
-    checkPlatform()
-    pass
+    if not hasattr(options, 'platform'):
+        sys.stderr.write('ERROR: "platform" not defined')
+        rc.display_help()
+        return
 
 @task
+@cmdopts([
+    ('platform=', 'p', 'Current platform (<linux|mac>)')
+])
 def rc():
     '''
     '''
+    if not hasattr(options, 'platform'):
+        sys.stderr.write('ERROR: "platform" not defined')
+        rc.display_help()
+        return
     for dir in itertools.chain([rc_dir], rc_dir.walkdirs()):
-        checkPlatform()
         create_dir(dir)
         link_files(dir)
         copy_base_files(dir)
@@ -48,6 +50,8 @@ def copy_base_files(dir):
     for file in dir.files('*___base'):
         target = to_dotfile(file, '___base')
         if target:
+            if target.exists():
+                target.remove()
             file.copy(target)
 
 def create_dir(dir):
