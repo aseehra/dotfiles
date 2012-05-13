@@ -13,7 +13,8 @@ prompt_aseehra_setup () {
 	prompt_color_user=${2:-'green'}
 	prompt_color_root=${3:-'red'}
 
-	if [ "$USER" = 'root' ]
+#	if [ "$USER" = 'root' ]
+	if [ $UID -eq 0 ]
 	then
 		prompt_open="%B%F{$prompt_color_root}[%f"
 		prompt_user="%F{$prompt_color_root}root@%m%f"
