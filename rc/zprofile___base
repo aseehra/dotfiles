@@ -1,3 +1,5 @@
+umask 077
+
 # Load local path
 typeset -U path
 if [[ -d $HOME/.local/bin ]] ; then
