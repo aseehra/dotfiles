@@ -5,3 +5,5 @@ keychain -q $HOME/.ssh/id_rsa
 	source $HOME/.keychain/${HOSTNAME}-sh
 [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && \
 	source $HOME/.keychain/${HOSTNAME}-sh-gpg
+
+export EDITOR=/usr/bin/vim

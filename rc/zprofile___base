@@ -1,4 +1,6 @@
-umask 077
+if [[ $UID -neq 0 ]] ; then
+	umask 077
+fi
 
 # Load local path
 typeset -U path
