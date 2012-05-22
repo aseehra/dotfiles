@@ -2,6 +2,8 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=utf-8,latin1
 endif
 
+call pathogen#infect() " Initialize pathogen
+
 set nocompatible	" Use Vim defaults (much better!)
 set bs=2		" allow backspacing over everything in insert mode
 set ai			" always set auto indenting on

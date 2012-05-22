@@ -1,0 +1,3 @@
+[submodule "rc/vim/bundle/vim-less"]
+	path = rc/vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
