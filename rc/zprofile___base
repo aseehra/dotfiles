@@ -1,4 +1,4 @@
-if [[ $UID -neq 0 ]] ; then
+if [[ $UID -ne 0 ]] ; then
 	umask 077
 fi
 

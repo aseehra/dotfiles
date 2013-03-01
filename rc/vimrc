@@ -69,6 +69,8 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.xml setl ts=2
 
   autocmd BufNewFile,BufRead *.html setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.html setl et
+  autocmd BufNewFile,BufRead *.html setl tw=0
   autocmd BufNewFile,BufRead *.js setl colorcolumn=79
 
   " When editing makefiles, set your shiftwidth correctly
