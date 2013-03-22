@@ -63,10 +63,10 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd BufNewFile,BufRead *.click highlight clear SpellCap
 
-  autocmd BufNewFile,BufRead *.xml setl colorcolumn=79
-  autocmd BufNewFile,BufRead *.xml setl et
-  autocmd BufNewFile,BufRead *.xml setl sw=2
-  autocmd BufNewFile,BufRead *.xml setl ts=2
+  autocmd BufNewFile,BufRead *.xml\|*.yml setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.xml\|*.yml setl et
+  autocmd BufNewFile,BufRead *.xml\|*.yml setl sw=2
+  autocmd BufNewFile,BufRead *.xml\|*.yml setl ts=2
 
   autocmd BufNewFile,BufRead *.html setl colorcolumn=79
   autocmd BufNewFile,BufRead *.html setl et
