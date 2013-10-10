@@ -18,3 +18,5 @@
 	br = branch
 	dump = cat-file -p
 	type = cat-file -t
+[push]
+	default = upstream
