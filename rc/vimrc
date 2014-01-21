@@ -1,5 +1,5 @@
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-   set fileencodings=utf-8,latin1
+	set fileencodings=utf-8,latin1
 endif
 
 call pathogen#infect() " Initialize pathogen
@@ -114,4 +114,7 @@ if &term=="xterm"
      set t_Co=8
      set t_Sb=[4%dm
      set t_Sf=[3%dm
+endif
+if &term=="xterm-256color"
+	set t_Co=16
 endif
