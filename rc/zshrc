@@ -5,6 +5,9 @@ promptinit
 prompt aseehra
 #RPS1="[%?]"
 
+# Add additional completions
+fpath=($HOME/.zsh $fpath)
+
 if [[ -f $HOME/.zsh/aliases ]] ; then
 	source $HOME/.zsh/aliases
 fi
