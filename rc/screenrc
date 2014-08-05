@@ -1,3 +1,6 @@
 vbell off
 defscrollback 1000
 hardstatus alwayslastline "%{wK}%?%-Lw%?%{wk}%n*%f %t%?(%u)%?%{wK}%?%+Lw%? %{kK}%=%{yK}%c:%s %{mK}%d %M %{gK}%l"
+
+bind e stuff "screen -X chdir \$PWD; screen; screen -X chdir \$HOME"
+bind ^e stuff "screen -X chdir \$PWD; screen; screen -X chdir \$HOME"
