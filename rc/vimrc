@@ -45,11 +45,11 @@ highlight ColorColumn ctermbg = DarkGray
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt\|*.tex setl tw=78 " In text|tex files, always limit the width of text to 78 characters
+  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt\|*.tex setl tw=80 " In text|tex files, always limit the width of text to 80 characters
   autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt setl et " In text files, expand tabs.
 
   autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl cin
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl tw=78
+  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl tw=80
   autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl sw=2
   autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl ts=2
   autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl et
@@ -58,20 +58,21 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.py setl ai
   autocmd BufNewFile,BufRead *.py setl et " Follow PEP8 convention -- expand tabs
   autocmd BufNewFile,BufRead *.py setl fdm=indent
-  autocmd BufNewFile,BufRead *.py setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.py setl colorcolumn=81
+  autocmd BufNewFile,BufRead *.py setl tw=80
 
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd BufNewFile,BufRead *.click highlight clear SpellCap
 
-  autocmd BufNewFile,BufRead *.xml\|*.yml setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.xml\|*.yml setl colorcolumn=81
   autocmd BufNewFile,BufRead *.xml\|*.yml setl et
   autocmd BufNewFile,BufRead *.xml\|*.yml setl sw=2
   autocmd BufNewFile,BufRead *.xml\|*.yml setl ts=2
 
-  autocmd BufNewFile,BufRead *.html setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.html setl colorcolumn=81
   autocmd BufNewFile,BufRead *.html setl et
   autocmd BufNewFile,BufRead *.html setl tw=0
-  autocmd BufNewFile,BufRead *.js setl colorcolumn=79
+  autocmd BufNewFile,BufRead *.js setl colorcolumn=81
 
   " When editing makefiles, set your shiftwidth correctly
   autocmd BufNewFile,BufRead Makefile\|*.Makefile setl sw=8
