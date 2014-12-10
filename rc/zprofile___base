@@ -1,5 +1,5 @@
 if [[ $UID -ne 0 ]] ; then
-	umask 077
+	umask 002
 fi
 
 # Load local path
