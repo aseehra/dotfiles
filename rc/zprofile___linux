@@ -1,4 +1,4 @@
 # set up keychain
-eval $(keychain --eval -q $HOME/.ssh/id_rsa)
+eval $(keychain --eval -q --agents ssh $HOME/.ssh/id_rsa)
 
 export EDITOR=/usr/bin/vim
