@@ -13,7 +13,7 @@ if [[ -f $HOME/.zsh/aliases ]] ; then
 fi
 
 # NICE LOCATIONS
-if [[ -f $HOME/.zsh/remove_servers ]] ; then
+if [[ -e $HOME/.zsh/remote_servers ]] ; then
 	source $HOME/.zsh/remote_servers
 fi
 

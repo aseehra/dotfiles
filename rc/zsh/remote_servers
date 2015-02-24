@@ -1,12 +1,16 @@
 # Helpful locations for remote servers
-
-export leica="leica.cs.utexas.edu"
-export dandelion="dandelion.cs.utexas.edu"
-export facemaster="facemaster.cs.utexas.edu"
+export broccoli="sftp://broccoli.whatbox.ca/~"
 
 # Old servers
 
+#export leica="leica.cs.utexas.edu"
+#export dandelion="dandelion.cs.utexas.edu"
+#export facemaster="facemaster.cs.utexas.edu"
 #export ludgate="ludgate.cs.ucl.ac.uk"
 #export nachtwey="nachtwey.csres.utexas.edu"
 #export beirut="beirut.stanford.edu"
 #export market="market.scs.stanford.edu"
+#alias leica='ssh $leica'
+#alias facemaster='ssh -X $facemaster'
+#alias nachtwey='ssh -X $nachtwey'
+#alias beirut='ssh -X $beirut'

@@ -5,12 +5,8 @@ alias l='ls -hl --color'
 alias ll='ls -hal --color'
 
 alias rm='rm -I'
-alias texdelete='rm -f *.aux *.toc *.out *.bbl *.blg *.log *.lof *.lot *.synctex*; rm -i *.pdf'
 
-alias leica='ssh $leica'
-alias facemaster='ssh -X $facemaster'
-#alias nachtwey='ssh -X $nachtwey'
-#alias beirut='ssh -X $beirut'
+alias texdelete='rm -f *.aux *.toc *.out *.bbl *.blg *.log *.lof *.lot *.synctex*; rm -i *.pdf'
 
 alias gripe='cat >> $MW/system_gripes.txt <<eof && pushd $PHD && git commit -a -m "add system gripe" && popd'
 
