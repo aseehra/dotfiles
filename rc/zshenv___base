@@ -1,3 +1,7 @@
+if [[ $UID -ne 0 ]] ; then
+	umask 002
+fi
+
 typeset -U fpath
 if [[ -d $HOME/.zsh/prompt ]] ; then
 	fpath=( $HOME/.zsh/prompt $fpath )
