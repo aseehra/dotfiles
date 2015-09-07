@@ -2,20 +2,3 @@ if [[ $UID -ne 0 ]] ; then
 	umask 002
 fi
 
-# Load local path
-typeset -U path
-if [[ -d $HOME/.local/bin ]] ; then
-	path=( $HOME/.local/bin $path )
-fi
-
-# Load helpful locations
-if [[ -f $HOME/.zsh/shortcuts ]] ; then
-	source $HOME/.zsh/shortcuts
-fi
-
-# Load ruby gems
-RUBY_USER_DIR=$(ruby -rubygems -e "puts Gem.user_dir")/bin
-if [[ -d $RUBY_USER_DIR ]] ; then
-	path=( $RUBY_USER_DIR $path )
-fi
-

@@ -1,8 +1,0 @@
-typeset -U fpath
-if [[ -d $HOME/.zsh/prompt ]] ; then
-	fpath=( $HOME/.zsh/prompt $fpath )
-fi
-
-if [[ -d $HOME/.local/bin ]] ; then
-	fpath=( $HOME/.local/bin $fpath )
-fi
