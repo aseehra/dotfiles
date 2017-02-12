@@ -48,3 +48,11 @@ BASH_AUTO_LIST		\
 
 function dmalloc { eval `command dmalloc -b $*`; }
 bindkey -e
+
+# let OSX know about what directory we're in.
+case $TERM in
+	xterm*)
+		precmd () { printf '\e]7;%s\a' "file://${HOST}/${PWD}" }
+		;;
+esac
+

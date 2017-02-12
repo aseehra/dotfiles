@@ -1,10 +1,3 @@
 export EDITOR=/opt/bin/vim
-
-typeset -U path
-if [[ -d $HOME/Library/Python/2.7/bin ]] ; then
-	path=( $HOME/Library/Python/2.7/bin $path )
-fi
-
-if [[ -d $HOME/Library/Python/3.4/bin ]] ; then
-	path=( $HOME/Library/Python/3.4/bin $path )
-fi
+export HOMEBREW_GITHUB_API_TOKEN="c45cada3f2139659131cc21d8fda529249c313f4"
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
