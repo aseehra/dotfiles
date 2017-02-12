@@ -1,2 +1,0 @@
-# set up keychain
-#eval $(keychain --eval -q --agents ssh $HOME/.ssh/id_rsa)
