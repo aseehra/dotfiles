@@ -4,3 +4,5 @@ hardstatus alwayslastline "%{wK}%?%-Lw%?%{wk}%n*%f %t%?(%u)%?%{wK}%?%+Lw%? %{kK}
 
 bind e stuff "screen -X chdir \$PWD; screen; screen -X chdir \$HOME"
 bind ^e stuff "screen -X chdir \$PWD; screen; screen -X chdir \$HOME"
+
+term xterm-256color

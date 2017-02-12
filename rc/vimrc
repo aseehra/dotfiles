@@ -119,3 +119,6 @@ endif
 if &term=="xterm-256color"
 	set t_Co=16
 endif
+
+"Fix unreadable highlights with IR_BLACK terminals
+hi SpellLocal term=underline ctermfg=8 ctermbg=14 gui=undercurl guisp=Cyan
