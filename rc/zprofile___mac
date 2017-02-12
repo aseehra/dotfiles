@@ -1,3 +1,6 @@
 export EDITOR=/opt/bin/vim
-export HOMEBREW_GITHUB_API_TOKEN="c45cada3f2139659131cc21d8fda529249c313f4"
+if [[ -f $HOME/.brew-token ]] ; then
+	source $HOME/.brew-token
+fi
+
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
