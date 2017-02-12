@@ -3,6 +3,9 @@
 	# <http://www.kernel.org/pub/software/scm/git/docs/git-config.html>
 	# to see why we use this convoluted syntax
 	pager = less -$LESS -SFRX -SR
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+
 [color]
 	ui = true
 
