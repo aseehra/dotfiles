@@ -12,11 +12,6 @@ if [[ -f $HOME/.zsh/aliases ]] ; then
 	source $HOME/.zsh/aliases
 fi
 
-# NICE LOCATIONS
-if [[ -e $HOME/.zsh/remote_servers ]] ; then
-	source $HOME/.zsh/remote_servers
-fi
-
 # HISTORIES
 
 HISTSIZE=1000
@@ -56,3 +51,6 @@ case $TERM in
 		;;
 esac
 
+if [[ -f $HOME/.zsh/zshrc.local ]] ; then
+	source "$HOME/.zsh/zshrc.local"
+fi

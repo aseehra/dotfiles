@@ -1,6 +1,0 @@
-export EDITOR=/opt/bin/vim
-if [[ -f $HOME/.brew-token ]] ; then
-	source $HOME/.brew-token
-fi
-
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"

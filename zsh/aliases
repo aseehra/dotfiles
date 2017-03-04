@@ -11,3 +11,7 @@ alias texdelete='rm -f *.aux *.toc *.out *.bbl *.blg *.log *.lof *.lot *.synctex
 alias gripe='cat >> $MW/system_gripes.txt <<eof && pushd $PHD && git commit -a -m "add system gripe" && popd'
 
 alias gitka='gitk --all'
+
+if [[ -f $HOME/.zsh/aliases.local ]] ; then
+	source $HOME/.zsh/aliases.local
+fi

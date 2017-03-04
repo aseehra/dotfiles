@@ -74,14 +74,15 @@ endif
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
   autocmd FileType text,markdown setl et tw=80 cc=81
-  autocmd FileType c,cpp,java,objc setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101
-  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100  "Follow PEP 8/Google style
+  autocmd FileType c,cpp,java,objc setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101 list
+  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100 list "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et sw=2 ts=2 cc=81
-  autocmd FileType xml,html setl ai et sw=2 ts=2 tw=0 cc=81
+  autocmd FileType xml,html setl ai et sw=2 ts=2 tw=0 cc=81 list
   autocmd BufNewFile,BufRead *.js setl cin cc=81
   " When editing makefiles, set your shiftwidth correctly
-  autocmd FileType make setl noet sw=8 ts=8
+  autocmd FileType make setl noet sw=8 ts=8 list
+  autocmd FileType zsh,sh setl ai noet ts=4 sw=4 tw=80 cc=81 list
 
   " When editing a file, always jump to the last cursor position
   autocmd BufNewFile,BufReadPost *

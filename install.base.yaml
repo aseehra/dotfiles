@@ -1,0 +1,27 @@
+# Dotbot configuration file
+# Copyright (c) 2017, Arun Seehra <seehra.a@gmail.com>
+# All rights reserved.
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    - '~'
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [mkdir -p ~/.vim/bundle, Create ~/.vim/bundle]
+  - [cp -R vim/bundle/Vundle.vim ~/.vim/bundle, Installing Vundle.vim]
+
+- link:
+    ~/.gitconfig: 'gitconfig'
+    ~/.gitignore_global: 'gitignore_global'
+    ~/.screenrc: 'screenrc'
+    ~/.vimrc: 'vimrc'
+    ~/.zshenv: 'zshenv'
+    ~/.zshrc: 'zshrc'
+    ~/.zsh/_git: 'zsh/_git'
+    ~/.zsh/aliases: 'zsh/aliases'
+    ~/.zsh/prompt/prompt_aseehra_setup: 'zsh/prompt_aseehra_setup'
