@@ -40,6 +40,7 @@ set backupskip=/tmp/crontab.*
 set clipboard=unnamed  "use the system clipboard by default
 set laststatus=2  "always show the status line
 set number
+set visualbell
 
 " Make it clear when we have extra characters
 set listchars=tab:»\ ,trail:·,extends:›,precedes:‹,nbsp:·
@@ -73,6 +74,8 @@ nnoremap <space> za
 let vim256_path=expand("~/.vim/vim256.rc")
 if filereadable(vim256_path)
     let base16colorspace=256
+else
+    let base16colorspace=0
 endif
 
 if &term=="xterm"
@@ -90,14 +93,16 @@ endif
 
 colorscheme base16-thirtyfivemm-ocean
 
-if has('gui_running') || (exists('base16colorspace') && base16colorspace == "256")
+if has('gui_running') || base16colorspace == "256"
     set cursorline
 endif
 " }}}
 
 " Airline {{{
 let g:airline_theme='base16'
-let g:airline_powerline_fonts = 1
+if  base16colorspace == "256" || (has("gui") && !has("gui_macvim"))
+    let g:airline_powerline_fonts = 1
+endif
 " }}}
 
 " Language specific preferences {{{
