@@ -1,107 +1,93 @@
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-	set fileencodings=utf-8,latin1
+    set fileencodings=utf-8,latin1
 endif
 
-call pathogen#infect() " Initialize pathogen
+set nocompatible  " Use Vim defaults (much better!)
 
-set nocompatible	" Use Vim defaults (much better!)
-set bs=2		" allow backspacing over everything in insert mode
-set ai			" always set auto indenting on
-"set backup		" keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+" Vundle {{{
+filetype off  " Required for Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+" }}}
+
+filetype plugin indent on
+
+set bs=2  " allow backspacing over everything in insert mode
+set ai  " always set auto indenting on
+set viminfo='20,\"50  " read/write a .viminfo file, don't store more
 set incsearch
-set nohlsearch               " no highlighting search
-set vb t_vb=
+set nohlsearch  " no highlighting search
 set showmatch
-			" than 50 lines of registers
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set noet        " DONT expand tabs!
-set sw=4                " set shift tabwidth to 4
-set ts=4                " set tabstop to 4
-set nowrap              " don't wrap lines
+set history=50  " keep 50 lines of command line history
+set ruler  " show the cursor position all the time
+set et
+set sw=4  " set shift tabwidth to 4
+set ts=4  " set tabstop to 4
+set nowrap  " don't wrap lines
 set backupskip=/tmp/crontab.*
+set clipboard=unnamed  "use the system clipboard by default
+set laststatus=2  "always show the status line
+set number
 
-" Enable filetype plugin support
-filetype on
-filetype plugin on
-filetype indent on
+" Make it clear when we have extra characters
+set listchars=tab:»\ ,trail:·,extends:›,precedes:‹,nbsp:·
+
+" Code folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
 
 " spellcheck crap
 set spell
 set spell spelllang=en_us
 set spellfile=~/.vim/spellfile.add
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=DarkRed
-highlight SpellBad term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap ctermbg=DarkGreen
 
-highlight clear Folded
-highlight Folded ctermfg=DarkCyan
-highlight clear CursorLine
-highlight CursorLine ctermbg=DarkGray
-highlight ColorColumn ctermbg = DarkGray
+" Remaps {{{
+" Custom movement
+nnoremap j gj
+nnoremap k gk
+
+" avoid using ESC
+noremap! jk <esc>
+" easier to open/close folds
+nnoremap <space> za
+" }}}
+
+" ColorSchemes {{{
+colorscheme base16-thirtyfivemm-ocean
+let g:airline_theme='base16_ocean'
+
+if has('gui_running')
+  set cursorline
+endif
+" }}}
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt\|*.tex setl tw=80 " In text|tex files, always limit the width of text to 80 characters
-  autocmd BufNewFile,BufRead NOTES*\|README\|HACKS*\|*.txt setl et " In text files, expand tabs.
-
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl cin
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl tw=80
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl sw=2
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl ts=2
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.h\|*.java setl et
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.m\|*.java setl fdm=syntax
-
-  autocmd BufNewFile,BufRead *.py setl ai
-  autocmd BufNewFile,BufRead *.py setl et " Follow PEP8 convention -- expand tabs
-  autocmd BufNewFile,BufRead *.py setl fdm=indent
-  autocmd BufNewFile,BufRead *.py setl colorcolumn=81
-  autocmd BufNewFile,BufRead *.py setl tw=80
-
+  " text & text-like files: hard wrap at 80 characters and expand tabs
+  autocmd FileType text,markdown setl et tw=80 cc=81
+  autocmd FileType c,cpp,java,objc setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101
+  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100  "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
-  autocmd BufNewFile,BufRead *.click highlight clear SpellCap
-
-  autocmd BufNewFile,BufRead *.xml\|*.yml setl colorcolumn=81
-  autocmd BufNewFile,BufRead *.xml\|*.yml setl et
-  autocmd BufNewFile,BufRead *.xml\|*.yml setl sw=2
-  autocmd BufNewFile,BufRead *.xml\|*.yml setl ts=2
-
-  autocmd BufNewFile,BufRead *.html setl colorcolumn=81
-  autocmd BufNewFile,BufRead *.html setl et
-  autocmd BufNewFile,BufRead *.html setl tw=0
-  autocmd BufNewFile,BufRead *.js setl colorcolumn=81
-
+  autocmd FileType json,yaml setl ai et sw=2 ts=2 cc=81
+  autocmd FileType xml,html setl ai et sw=2 ts=2 tw=0 cc=81
+  autocmd BufNewFile,BufRead *.js setl cin cc=81
   " When editing makefiles, set your shiftwidth correctly
-  autocmd BufNewFile,BufRead Makefile\|*.Makefile setl sw=8
-
-  " When editing code, make spell check less visible
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|*.java\|Makefile\|*.Makefile highlight clear SpellBad
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|*.java\|Makefile\|*.Makefile highlight clear SpellCap
-  autocmd BufNewFile,BufRead *.cc\|*.cpp\|*.c\|*.C\|*.h\|*.py\|Makefile\|*.Makefile highlight SpellBad term=underline cterm=underline
+  autocmd FileType make setl noet sw=8 ts=8
 
   " When editing a file, always jump to the last cursor position
   autocmd BufNewFile,BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
-endif
-
-if has("cscope")
-   set csprg=/usr/bin/cscope
-   set csto=0
-   set cst
-   set nocsverb
-   " add any database in current directory
-   if filereadable("cscope.out")
-      cs add cscope.out
-   " else add database pointed to by environment
-   elseif $CSCOPE_DB != ""
-      cs add $CSCOPE_DB
-   endif
-   set csverb
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -116,9 +102,10 @@ if &term=="xterm"
      set t_Sb=[4%dm
      set t_Sf=[3%dm
 endif
-if &term=="xterm-256color"
-	set t_Co=16
-endif
 
-"Fix unreadable highlights with IR_BLACK terminals
-hi SpellLocal term=underline ctermfg=8 ctermbg=14 gui=undercurl guisp=Cyan
+" A oneliner for debuging syntax files
+map <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" vim:fdm=marker:foldlevel=0
