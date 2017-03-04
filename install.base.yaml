@@ -20,6 +20,8 @@
     ~/.gitignore_global: 'gitignore_global'
     ~/.screenrc: 'screenrc'
     ~/.vimrc: 'vimrc'
+    ~/.vim/colors/base16-thirtyfivemm-ocean.vim: 'vim/colors/base16-thirtyfivemm-ocean.vim'
+    ~/.gvimrc: 'gvimrc'
     ~/.zshenv: 'zshenv'
     ~/.zshrc: 'zshrc'
     ~/.zsh/_git: 'zsh/_git'

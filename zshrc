@@ -51,6 +51,10 @@ case $TERM in
 		;;
 esac
 
+if [[ -f $HOME/.zsh/base16-thirtyfivemm-ocean.sh ]] ; then
+	source $HOME/.zsh/base16-thirtyfivemm-ocean.sh
+fi
+
 if [[ -f $HOME/.zsh/zshrc.local ]] ; then
 	source "$HOME/.zsh/zshrc.local"
 fi

@@ -1,8 +1,12 @@
+" vim:fdm=marker:foldlevel=0
+
+" Compatibility {{{
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
     set fileencodings=utf-8,latin1
 endif
 
 set nocompatible  " Use Vim defaults (much better!)
+" }}}
 
 " Vundle {{{
 filetype off  " Required for Vundle
@@ -18,8 +22,8 @@ Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 " }}}
 
+" General {{{
 filetype plugin indent on
-
 set bs=2  " allow backspacing over everything in insert mode
 set ai  " always set auto indenting on
 set viminfo='20,\"50  " read/write a .viminfo file, don't store more
@@ -39,16 +43,19 @@ set number
 
 " Make it clear when we have extra characters
 set listchars=tab:»\ ,trail:·,extends:›,precedes:‹,nbsp:·
+" }}}
 
-" Code folding
+" Code folding {{{
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
+" }}}
 
-" spellcheck crap
+" Spellcheck {{{
 set spell
 set spell spelllang=en_us
 set spellfile=~/.vim/spellfile.add
+" }}}
 
 " Remaps {{{
 " Custom movement
@@ -62,14 +69,38 @@ nnoremap <space> za
 " }}}
 
 " ColorSchemes {{{
-colorscheme base16-thirtyfivemm-ocean
-let g:airline_theme='base16_ocean'
+" Test to see if we're on a 256-capable terminal
+let vim256_path=expand("~/.vim/vim256.rc")
+if filereadable(vim256_path)
+    let base16colorspace=256
+endif
 
-if has('gui_running')
-  set cursorline
+if &term=="xterm"
+    set t_Co=8
+    set t_Sb=[4%dm
+    set t_Sf=[3%dm
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+    syntax on
+    " set hlsearch
+endif
+
+colorscheme base16-thirtyfivemm-ocean
+
+if has('gui_running') || (exists('base16colorspace') && base16colorspace == "256")
+    set cursorline
 endif
 " }}}
 
+" Airline {{{
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+" }}}
+
+" Language specific preferences {{{
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
@@ -90,23 +121,11 @@ if has("autocmd")
   \   exe "normal! g'\"" |
   \ endif
 endif
+" }}}
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  " set hlsearch
-endif
-
-if &term=="xterm"
-     set t_Co=8
-     set t_Sb=[4%dm
-     set t_Sf=[3%dm
-endif
 
 " A oneliner for debuging syntax files
 map <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" vim:fdm=marker:foldlevel=0
