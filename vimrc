@@ -40,7 +40,7 @@ set backupskip=/tmp/crontab.*
 set clipboard=unnamed  "use the system clipboard by default
 set laststatus=2  "always show the status line
 set number
-set visualbell
+set noerrorbells visualbell t_vb=
 
 " Make it clear when we have extra characters
 set listchars=tab:»\ ,trail:·,extends:›,precedes:‹,nbsp:·
