@@ -2,6 +2,9 @@
 PS1="[%n@%m:%C]$ "
 autoload -U promptinit
 promptinit
+if [[ -f $HOME/.zsh/prompt/git/zshrc.sh ]] ; then
+	source $HOME/.zsh/prompt/git/zshrc.sh
+fi
 prompt aseehra
 #RPS1="[%?]"
 

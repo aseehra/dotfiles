@@ -35,6 +35,13 @@ prompt_aseehra_setup () {
 	PS1="$prompt_open$prompt_user:$prompt_path$prompt_close%F{$prompt_color_base}$prompt_sep%f $prompt_postfix"
 	PS2="    %F{$prompt_color_base}%_>%f $prompt_postfix"
 	PS3="    %F{$prompt_color_base}?#%f $prompt_postfix"
+
+	if [[ -f "$HOME/.zsh/prompt/git/zshrc.sh" ]] ; then
+		ZSH_THEME_GIT_PROMPT_PREFIX=" "
+		ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+		ZSH_THEME_GIT_PROMPT_SUFFIX=""
+		RPS1='$(git_super_status)'
+	fi
 }
 
 prompt_aseehra_setup "$@"

@@ -9,6 +9,8 @@
 
 - clean:
     - '~'
+    - '~/.zsh'
+    - '~/.vim'
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
@@ -26,4 +28,5 @@
     ~/.zshrc: 'zshrc'
     ~/.zsh/_git: 'zsh/_git'
     ~/.zsh/aliases: 'zsh/aliases'
-    ~/.zsh/prompt/prompt_aseehra_setup: 'zsh/prompt_aseehra_setup'
+    ~/.zsh/prompt/prompt_aseehra_setup: 'zsh/prompt/prompt_aseehra_setup'
+    ~/.zsh/prompt/git: 'zsh/prompt/zsh-git-prompt'
