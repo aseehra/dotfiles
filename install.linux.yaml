@@ -10,5 +10,4 @@
 - link:
     ~/.zsh/aliases.local: 'zsh/aliases.linux.local'
     ~/.gitk: 'gitk.linux.local'
-    ~/.zsh/base16-thirtyfivemm-ocean.sh: 'zsh/base16-thirtyfivemm-ocean-shell.sh'
     ~/.vim/vim256.rc: 'vim/vim256.rc'

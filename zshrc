@@ -54,8 +54,8 @@ case $TERM in
 		;;
 esac
 
-if [[ -f $HOME/.zsh/base16-thirtyfivemm-ocean.sh ]] ; then
-	source $HOME/.zsh/base16-thirtyfivemm-ocean.sh
+if [[ -f $HOME/.zsh/base16-thirtyfivemm-ocean-shell.sh ]] ; then
+	source $HOME/.zsh/base16-thirtyfivemm-ocean-shell.sh
 fi
 
 if [[ -f $HOME/.zsh/zshrc.local ]] ; then

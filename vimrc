@@ -84,8 +84,7 @@ set spellfile=~/.vim/spellfile.add
 
 " ColorSchemes {{{
 " Test to see if we're on a 256-capable terminal
-let vim256_path=expand("~/.vim/vim256.rc")
-if filereadable(vim256_path)
+if has("gui_running") || &t_Co >= 256
     let base16colorspace=256
 else
     let base16colorspace=0
