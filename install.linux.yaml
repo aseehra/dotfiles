@@ -10,4 +10,3 @@
 - link:
     ~/.zsh/aliases.local: 'zsh/aliases.linux.local'
     ~/.gitk: 'gitk.linux.local'
-    ~/.vim/vim256.rc: 'vim/vim256.rc'
