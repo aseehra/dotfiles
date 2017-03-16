@@ -14,9 +14,11 @@ if [[ -d $HOME/.local/bin ]] ; then
 fi
 
 # Load ruby gems
-RUBY_USER_DIR=$(ruby -rubygems -e "puts Gem.user_dir")/bin
-if [[ -d $RUBY_USER_DIR ]] ; then
-	path=( $RUBY_USER_DIR $path )
+if type "ruby" > /dev/null ; then
+	RUBY_USER_DIR=$(ruby -rubygems -e "puts Gem.user_dir")/bin
+	if [[ -d $RUBY_USER_DIR ]] ; then
+		path=( $RUBY_USER_DIR $path )
+	fi
 fi
 
 export EDITOR=/usr/bin/vim
