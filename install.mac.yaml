@@ -9,5 +9,6 @@
 
 - link:
     ~/.zsh/zshenv.local: 'zshenv.mac.local'
+    ~/.zsh/zshrc.local: 'zshrc.mac.local'
     ~/.zsh/aliases.local: 'zsh/aliases.mac.local'
     ~/.gitk: 'gitk.mac.local'
