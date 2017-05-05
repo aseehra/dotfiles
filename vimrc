@@ -27,6 +27,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'digitaltoad/vim-pug'
 
 call vundle#end()
 " }}}
@@ -116,7 +117,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Checkers
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['prospector']
+let g:syntastic_javascript_checkers = ['standard']
 " }}}
 
 " Autoformatters {{{
@@ -151,7 +153,7 @@ endif
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
   autocmd FileType text,markdown setl et tw=80 cc=81
-  autocmd FileType c,cpp,java,objc setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101 list
+  autocmd FileType c,cpp,java,objc,javascript setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101 list
   autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100 list "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et sw=2 ts=2 cc=81
