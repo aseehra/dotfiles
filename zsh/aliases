@@ -4,6 +4,8 @@ alias ls='ls -h --color'
 alias l='ls -hl --color'
 alias ll='ls -hal --color'
 
+alias df='df -h'
+
 alias rm='rm -I'
 
 alias texdelete='rm -f *.aux *.toc *.out *.bbl *.blg *.log *.lof *.lot *.synctex*; rm -i *.pdf'
