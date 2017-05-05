@@ -1,5 +1,7 @@
 if has("gui_macvim")
-  set guifont=PanicSans:h10
+  "set guifont=DejaVu\ Sans\ Mono\ For\ Powerline:h10
+  set guifont=Fira\ Code\ Retina:h10
+  set macligatures
   set transparency=5
   set blur=20
 else
