@@ -43,8 +43,8 @@ set showmatch
 set history=50  " keep 50 lines of command line history
 set ruler  " show the cursor position all the time
 set et
-set sw=4  " set shift tabwidth to 4
-set ts=4  " set tabstop to 4
+set sw=2  " set shift tabwidth to 4
+set ts=2  " set tabstop to 4
 set nowrap  " don't wrap lines
 set backupskip=/tmp/crontab.*
 set clipboard=unnamed  "use the system clipboard by default
@@ -152,12 +152,12 @@ endif
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
-  autocmd FileType text,markdown setl et tw=80 cc=81
-  autocmd FileType c,cpp,java,objc,javascript setl cin et ts=2 sw=2 fdm=syntax tw=100 cc=101 list
+  autocmd FileType text,markdown setl sw=4 ts=4 et tw=80 cc=81
+  autocmd FileType c,cpp,java,objc,javascript setl cin et fdm=syntax tw=100 cc=101 list
   autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100 list "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
-  autocmd FileType json,yaml setl ai et sw=2 ts=2 cc=81
-  autocmd FileType xml,html setl ai et sw=2 ts=2 tw=0 cc=81 list
+  autocmd FileType json,yaml setl ai et cc=81
+  autocmd FileType xml,html setl ai et tw=0 cc=81 list
   autocmd BufNewFile,BufRead *.js setl cin cc=81
   " When editing makefiles, set your shiftwidth correctly
   autocmd FileType make setl noet sw=8 ts=8 list
