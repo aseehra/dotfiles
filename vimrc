@@ -28,6 +28,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'aseehra/vim-vue'
 
 call vundle#end()
 " }}}
@@ -119,6 +120,7 @@ let g:syntastic_check_on_wq = 0
 " Checkers
 let g:syntastic_python_checkers = ['prospector']
 let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_vue_checkers = ['standard']
 " }}}
 
 " Autoformatters {{{
@@ -158,7 +160,6 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et cc=81
   autocmd FileType xml,html setl ai et tw=0 cc=81 list
-  autocmd BufNewFile,BufRead *.js setl cin cc=81
   " When editing makefiles, set your shiftwidth correctly
   autocmd FileType make setl noet sw=8 ts=8 list
   autocmd FileType zsh,sh setl ai noet ts=4 sw=4 tw=80 cc=81 list
