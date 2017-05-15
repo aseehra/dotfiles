@@ -34,3 +34,4 @@
     ~/.zsh/prompt/prompt_aseehra_setup: 'zsh/prompt/prompt_aseehra_setup'
     ~/.zsh/prompt/git: 'zsh/prompt/zsh-git-prompt'
     ~/.tmux.conf: 'tmux.conf'
+    ~/.local/bin/GitHub.zsh: 'bin/GitHub.zsh'

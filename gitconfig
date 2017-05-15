@@ -21,5 +21,6 @@
 	br = branch
 	dump = cat-file -p
 	type = cat-file -t
+  hub = "!GitHub.zsh"
 [push]
 	default = simple
