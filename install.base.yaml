@@ -27,7 +27,6 @@
     ~/.gvimrc: 'gvimrc'
     ~/.zshenv: 'zshenv'
     ~/.zshrc: 'zshrc'
-    ~/.zsh/_git: 'zsh/_git'
     ~/.zsh/aliases: 'zsh/aliases'
     ~/.zsh/base16-thirtyfivemm-ocean-shell.sh: 'zsh/base16-thirtyfivemm-ocean-shell.sh'
     ~/.zsh/base16-thirtyfivemm-dark-shell.sh: 'zsh/base16-thirtyfivemm-dark-shell.sh'

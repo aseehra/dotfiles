@@ -9,7 +9,9 @@ prompt aseehra
 #RPS1="[%?]"
 
 # Add additional completions
-fpath=($HOME/.zsh $fpath)
+if [[ -d $HOME/.zsh/site-functions ]] ; then
+	fpath=($HOME/.zsh/site-functions $fpath)
+fi
 
 if [[ -f $HOME/.zsh/aliases ]] ; then
 	source $HOME/.zsh/aliases
