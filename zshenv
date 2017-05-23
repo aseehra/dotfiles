@@ -21,6 +21,12 @@ if type "ruby" > /dev/null ; then
 	fi
 fi
 
+# Load yarn path if it's in our local directory
+YARN_BIN_PATH=$HOME/.config/yarn/global/node_modules/.bin
+if [[ -d $YARN_BIN_PATH ]] ; then
+	path=( $YARN_BIN_PATH  $path )
+fi
+
 export EDITOR=/usr/bin/vim
 
 if [[ -f $HOME/.zsh/zshenv.local ]] ; then
