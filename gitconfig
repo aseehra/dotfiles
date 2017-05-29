@@ -15,9 +15,14 @@
 [alias]
 	st = status
 	ci = commit
+  cis = commit --squash
+  cif = commit --fixup
 	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short
 	hista = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short --all
+  rbi = rebase -i --autosquash
+  rbc = rebase --continue
+  rba = rebase --abort
 	br = branch
 	dump = cat-file -p
 	type = cat-file -t
