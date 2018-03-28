@@ -15,7 +15,7 @@ fi
 
 # Load ruby gems
 if type "ruby" > /dev/null ; then
-	RUBY_USER_DIR=$(ruby -rubygems -e "puts Gem.user_dir")/bin
+	RUBY_USER_DIR=$(ruby -rrubygems -e "puts Gem.user_dir")/bin
 	if [[ -d $RUBY_USER_DIR ]] ; then
 		path=( $RUBY_USER_DIR $path )
 	fi
