@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for url in $@ ; do
+	id=${url##*/}
+	get_iplayer --force --type=radio --get --fileprefix "<name>.<firstbcast>.<title>" --pid=${id}
+done

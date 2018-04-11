@@ -1,0 +1,13 @@
+#!/bin/bash
+
+flush=""
+if [[ $1 = "-f" ]] ; then
+	shift
+	flush="-f"
+fi
+get_iplayer --tree -l --type=radio --nopurge ${flush} "$*"
+echo -n "ID to retrieve: "
+read ep_id
+for id in $ep_id ; do
+	get_iplayer --type=radio --force --fileprefix "<name>.<firstbcast>.<title>" -g "$id"
+done
