@@ -1,0 +1,22 @@
+{
+    "name": "theme-base16-thirtyfivemm-ocean",
+    "displayName": "theme-base16-thirtyfivemm-ocean",
+    "description": "thirtyfivemm ocean theme",
+    "version": "0.0.1",
+    "publisher": "aseehra",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "base16 thirtyfivemm-ocean",
+                "uiTheme": "vs-dark",
+                "path": "./themes/base16 thirtyfivemm-ocean-color-theme.json"
+            }
+        ]
+    }
+}
