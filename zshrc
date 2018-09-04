@@ -63,3 +63,5 @@ fi
 if [[ -f $HOME/.zsh/zshrc.local ]] ; then
 	source "$HOME/.zsh/zshrc.local"
 fi
+
+export BAT_THEME=TwoDark
