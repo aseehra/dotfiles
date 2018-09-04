@@ -12,3 +12,7 @@ fi
 if [[ -d $HOME/Documents/mod ]] ; then
 	export MOD="$HOME/Documents/mod"
 fi
+
+if [[ -d $HOME/Documents/School/thinkful ]] ; then
+	export THINKFUL="$HOME/Documents/School/thinkful"
+fi
