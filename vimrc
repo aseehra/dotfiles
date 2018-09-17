@@ -22,12 +22,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'w0rp/ale'
 Plugin 'aseehra/vim-vue'
 
 call vundle#end()
@@ -112,15 +112,11 @@ if has('gui_running') || base16colorspace == "256"
 endif
 " }}}
 
-" Syntastic {{{
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Checkers
-let g:syntastic_python_checkers = ['prospector']
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_vue_checkers = ['standard']
+" Syntax Highlighting {{{
+let g:ale_linters = {
+\     'python': ['prospector'],
+\     'javascript': ['eslint']
+\   }
 " }}}
 
 " Autoformatters {{{
