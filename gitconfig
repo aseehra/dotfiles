@@ -18,8 +18,8 @@
   cis = commit --squash
   cif = commit --fixup
 	co = checkout
-	hist = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short
-	hista = log --pretty=format:\"%h %ad | %s [%an] %d\" --graph --date=short --all
+	hist = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short
+	hista = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short --all
   rbi = rebase -i --autosquash
   rbc = rebase --continue
   rba = rebase --abort
@@ -27,5 +27,10 @@
 	dump = cat-file -p
 	type = cat-file -t
   hub = "!GitHub.zsh"
+	lg = log --oneline --all --graph --decorate
 [push]
 	default = simple
+[diff]
+  submodule = log
+[status]
+  submoduleSummary = true
