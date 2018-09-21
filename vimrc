@@ -112,7 +112,7 @@ if has('gui_running') || base16colorspace == "256"
 endif
 " }}}
 
-" Syntax Highlighting {{{
+" Linting {{{
 let g:ale_linters = {
 \     'python': ['prospector'],
 \     'javascript': ['eslint']
@@ -121,8 +121,8 @@ let g:ale_linters = {
 
 " Autoformatters {{{
 " Python
-let g:formatters_python = ['yapf']
-let g:formatter_yapf_style = 'google'
+let g:formatters_python = ['autopep8']
+" let g:formatter_yapf_style = 'pep8'
 
 noremap <leader>= :Autoformat<CR>
 " }}}
@@ -138,7 +138,7 @@ let g:NERDSpaceDelims = 1
 " Airline {{{
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " let g:airline_inactive_collapse=1
 if  base16colorspace == "256" || (has("gui") && !has("gui_macvim"))
@@ -152,7 +152,7 @@ if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
   autocmd FileType text,markdown setl sw=4 ts=4 et tw=80 cc=81
   autocmd FileType c,cpp,java,objc,javascript setl cin et fdm=syntax tw=100 cc=101 list
-  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=81 tw=100 list "Follow PEP 8/Google style
+  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=101 tw=100 list "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et cc=81
   autocmd FileType xml,html setl ai et tw=0 cc=81 list
