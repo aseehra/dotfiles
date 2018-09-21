@@ -1,6 +1,3 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "zsh/prompt/zsh-git-prompt"]
-	path = zsh/prompt/zsh-git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt.git
