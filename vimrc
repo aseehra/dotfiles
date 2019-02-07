@@ -30,6 +30,7 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'w0rp/ale'
 Plugin 'ambv/black'
 Plugin 'aseehra/vim-vue'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 " }}}
@@ -120,6 +121,14 @@ let g:ale_linters = {
 " }}}
 
 " Autoformatters {{{
+" JS: Prettier:
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\ 'javascript': ['prettier', 'eslint'],
+\ 'rust': ['rustfmt']
+\}
+let g:ale_javascript_prettier_options = '--print-width 88'
+
 " Python
 let g:formatters_python = ['autopep8']
 " let g:formatter_yapf_style = 'pep8'
@@ -151,7 +160,7 @@ endif
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
   autocmd FileType text,markdown setl sw=4 ts=4 et tw=80 cc=81
-  autocmd FileType c,cpp,java,objc,javascript setl cin et fdm=syntax tw=100 cc=101 list
+  autocmd FileType c,cpp,java,objc,javascript setl cin et fdm=syntax tw=88 cc=88 list
   autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=89 tw=88 list "Follow PEP 8/Google style
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et cc=81

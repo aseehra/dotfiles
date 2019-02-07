@@ -27,6 +27,12 @@ if [[ -d $YARN_BIN_PATH ]] ; then
 	path=( $YARN_BIN_PATH  $path )
 fi
 
+# Load cargo path
+CARGO_PATH=$HOME/.cargo/bin
+if [[ -d $CARGO_PATH ]] ; then
+	path=( $CARGO_PATH $path )
+fi
+
 export EDITOR=/usr/bin/vim
 
 if [[ -f $HOME/.zsh/zshenv.local ]] ; then
