@@ -28,9 +28,12 @@
 	type = cat-file -t
   hub = "!GitHub.zsh"
 	lg = log --oneline --all --graph --decorate
+  br-cleanup = !git remote prune origin && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
 [push]
 	default = simple
 [diff]
   submodule = log
 [status]
   submoduleSummary = true
+[fetch]
+	prune = true
