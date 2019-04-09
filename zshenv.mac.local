@@ -5,14 +5,6 @@ fi
 
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
-if [[ -d $HOME/Documents/School/phd ]] ; then
-	export PHD="$HOME/Documents/School/phd"
-fi
-
 if [[ -d $HOME/Documents/mod ]] ; then
 	export MOD="$HOME/Documents/mod"
-fi
-
-if [[ -d $HOME/Documents/School/thinkful ]] ; then
-	export THINKFUL="$HOME/Documents/School/thinkful"
 fi
