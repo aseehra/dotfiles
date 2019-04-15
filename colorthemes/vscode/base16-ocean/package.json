@@ -1,0 +1,22 @@
+{
+    "name": "base16-ocean",
+    "displayName": "base16-ocean",
+    "description": "http://chriskempson.com/projects/base16/",
+    "version": "0.0.1",
+    "publisher": "test",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Base16 Ocean",
+                "uiTheme": "vs-dark",
+                "path": "./themes/base16-ocean.json"
+            }
+        ]
+    }
+}
