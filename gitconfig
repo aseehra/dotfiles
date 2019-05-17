@@ -20,7 +20,7 @@
 	co = checkout
 	hist = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short
 	hista = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short --all
-  rbi = rebase -i --autosquash
+  rbi = rebase -ir --autosquash
   rbc = rebase --continue
   rba = rebase --abort
 	br = branch
