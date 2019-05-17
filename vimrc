@@ -22,15 +22,15 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'chrisbra/vim-commentary'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'valloric/youcompleteme'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'w0rp/ale'
-Plugin 'ambv/black'
+" Plugin 'ambv/black'
 Plugin 'aseehra/vim-vue'
 Plugin 'rust-lang/rust.vim'
+" Plugin 'valloric/youcompleteme'
 
 call vundle#end()
 " }}}
