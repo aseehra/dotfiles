@@ -38,3 +38,5 @@ export EDITOR=/usr/bin/vim
 if [[ -f $HOME/.zsh/zshenv.local ]] ; then
 	source $HOME/.zsh/zshenv.local
 fi
+
+export DOCKER_SERVICES=true
