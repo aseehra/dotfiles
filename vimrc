@@ -22,7 +22,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'chrisbra/vim-commentary'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'digitaltoad/vim-pug'
@@ -142,6 +142,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " NERDCommenter {{{
 let g:NERDSpaceDelims = 1
+map gc <Plug>NERDCommenterToggle
 "}}}
 
 " Airline {{{
