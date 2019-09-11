@@ -30,6 +30,7 @@ Plugin 'w0rp/ale'
 " Plugin 'ambv/black'
 Plugin 'aseehra/vim-vue'
 Plugin 'rust-lang/rust.vim'
+Plugin 'tpope/vim-surround'
 " Plugin 'valloric/youcompleteme'
 
 call vundle#end()
@@ -170,6 +171,7 @@ if has("autocmd")
   autocmd FileType make setl noet sw=8 ts=8 list
   autocmd FileType zsh,sh setl ai noet ts=4 sw=4 tw=80 cc=81 list
   autocmd FileType gitcommit setl ai et ts=4 sw=4 tw=79 cc=80 list
+  autocmd BufNewFile,BufRead *.adoc setl lbr wrap tw=80 cc=81
 
   " When editing a file, always jump to the last cursor position
   autocmd BufNewFile,BufReadPost *
