@@ -14,8 +14,8 @@ alias gripe='cat >> $MW/system_gripes.txt <<eof && pushd $PHD && git commit -a -
 
 alias gitka='gitk --all'
 
+alias migrate_rspec_env='RAILS_ENV=test bundle exec rails db:environment:set db:drop db:create db:migrate'
+
 if [[ -f $HOME/.zsh/aliases.local ]] ; then
 	source $HOME/.zsh/aliases.local
 fi
-
-alias rspec_migrate_test='bundle exec rails db:environment:set db:drop db:create db:migrate RAILS_ENV=test'
