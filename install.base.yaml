@@ -14,8 +14,6 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [mkdir -p ~/.vim/bundle, Create ~/.vim/bundle]
-  - ['git clone -q https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim', Installing Vundle]
 
 - link:
     ~/.gitconfig: 'gitconfig'
