@@ -10,30 +10,21 @@ set nocompatible  " Use Vim defaults (much better!)
 " }}}
 
 " Plugins {{{
-filetype off  " Required for Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'w0rp/ale'
-" Plugin 'ambv/black'
-Plugin 'aseehra/vim-vue'
-Plugin 'rust-lang/rust.vim'
-Plugin 'tpope/vim-surround'
-" Plugin 'valloric/youcompleteme'
-
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Chiel92/vim-autoformat'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'digitaltoad/vim-pug'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+call plug#end()
 " }}}
 
 " General {{{
@@ -70,9 +61,6 @@ nnoremap k gk
 noremap! jk <esc>
 " easier to open/close folds
 nnoremap <space> za
-" }}}
-
-" Buffer management {{{
 " }}}
 
 " Code folding {{{
@@ -180,11 +168,3 @@ if has("autocmd")
   \ endif
 endif
 " }}}
-
-" Custom functions {{{
-" A oneliner for debuging syntax files
-map <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-" }}}
-
