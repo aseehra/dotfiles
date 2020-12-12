@@ -30,6 +30,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'digitaltoad/vim-pug'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 
@@ -109,28 +110,6 @@ if has('gui_running') || base16colorspace == "256"
 endif
 " }}}
 
-" Linting {{{
-let g:ale_linters = {
-\     'javascript': ['eslint']
-\   }
-" }}}
-
-" Autoformatters {{{
-" JS: Prettier:
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\ 'javascript': ['prettier', 'eslint'],
-\ 'rust': ['rustfmt']
-\}
-let g:ale_javascript_prettier_options = '--print-width 88'
-
-" Python
-let g:formatters_python = ['autopep8']
-" let g:formatter_yapf_style = 'pep8'
-
-noremap <leader>= :Autoformat<CR>
-" }}}
-
 " NERDTree {{{
 nnoremap <C-n> :NERDTreeToggle<CR>
 " }}}
@@ -156,8 +135,7 @@ endif
 if has("autocmd")
   " text & text-like files: hard wrap at 80 characters and expand tabs
   autocmd FileType text,markdown setl sw=4 ts=4 et tw=80 cc=81
-  autocmd FileType c,cpp,java,objc,javascript setl cin et fdm=syntax tw=88 cc=88 list
-  autocmd FileType python setl ai et fdm=indent ts=4 sw=4 cc=89 tw=88 list "Follow PEP 8/Google style
+  autocmd FileType c,cpp,java,objc setl cin et fdm=syntax tw=88 cc=88 list
   autocmd BufNewFile,BufRead *.click setl noet
   autocmd FileType json,yaml setl ai et cc=81
   autocmd FileType xml,html setl ai et tw=0 cc=81 list

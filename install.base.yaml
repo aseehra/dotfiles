@@ -20,6 +20,7 @@
     ~/.gitignore_global: 'gitignore_global'
     ~/.screenrc: 'screenrc'
     ~/.vimrc: 'vimrc'
+    ~/.vim/ftplugin: 'vim/ftplugin'
     ~/.vim/colors/base16-thirtyfivemm-ocean.vim: 'vim/colors/base16-thirtyfivemm-ocean.vim'
     ~/.vim/colors/base16-thirtyfivemm-dark.vim: 'vim/colors/base16-thirtyfivemm-dark.vim'
     ~/.gvimrc: 'gvimrc'
