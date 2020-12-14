@@ -29,6 +29,7 @@
   hub = "!GitHub.zsh"
 	lg = log --oneline --all --graph --decorate
   br-cleanup = !git remote prune origin && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
+  pushfff = push --force-with-lease
 [push]
 	default = simple
 [diff]

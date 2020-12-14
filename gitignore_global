@@ -7,3 +7,6 @@
 # Stupid mac crap
 #################
 .DS_Store
+
+# Ruby
+solargraph_helper.rb
