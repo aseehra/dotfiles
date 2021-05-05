@@ -39,4 +39,6 @@ if [[ -f $HOME/.zsh/zshenv.local ]] ; then
 	source $HOME/.zsh/zshenv.local
 fi
 
-export DOCKER_SERVICES=true
+if [[ -f $HOME/.zsh/zshenv.work.local ]] ; then
+	source $HOME/.zsh/zshenv.work.local
+fi

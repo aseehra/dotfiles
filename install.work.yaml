@@ -1,0 +1,11 @@
+# Dotbot local configuration for Macbook
+# Copyright (c) 2017, Arun Seehra <seehra.a@gmail.com>
+# All rights reserved.
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- link:
+    ~/.zsh/zshenv.work.local: 'zshenv.work.local'

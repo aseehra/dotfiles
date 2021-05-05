@@ -1,0 +1,6 @@
+export EDITOR=/usr/local/bin/vim
+export DOCKER_SERVICES=true
+
+export PGHOST="localhost"
+export PGDATABASE="ims-api-2017_development"
+export PGUSER="deploy"
