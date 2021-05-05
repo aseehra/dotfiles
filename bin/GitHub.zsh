@@ -52,6 +52,7 @@ case "$action" in
 	b) action='branches' ;;
 	i) action='issues' ;;
 	r) action='releases' ;;
+	p) action='prs' ;;
 	s) action='settings' ;;
 	t) action='tags' ;;
 	w) action='wiki' ;;
@@ -61,6 +62,7 @@ case "$action" in
 	'home') url="$url" ;;
 	'branches') url="$url/branches" ;;
 	'issues') url="$url/issues" ;;
+	'prs') url="$url/pulls" ;;
 	'releases') url="$url/releases" ;;
 	'tags') url="$url/tags" ;;
 	'repo-settings') url="$url/settings/repository" ;;
