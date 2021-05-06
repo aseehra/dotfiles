@@ -34,3 +34,4 @@
     ~/.tmux.conf: 'tmux.conf'
     ~/.local/bin/GitHub.zsh: 'bin/GitHub.zsh'
     ~/.get_iplayer/options: 'get_iplayer-options'
+    ~/.psqlrc: "psqlrc"
