@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tmux new -c $1 -t $1
