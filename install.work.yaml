@@ -9,3 +9,4 @@
 
 - link:
     ~/.zsh/zshenv.work.local: 'zshenv.work.local'
+    ~/.local/bin/jira: 'bin/jira'

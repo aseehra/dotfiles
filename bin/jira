@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+if ! git rev-parse 1>/dev/null 2>&1 ; then
+	echo "Error: this isn't a git directory"
+	return 1
+fi
+
+git_branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" || git_branch=''
+
+url="https://qsfllc.atlassian.net/browse/${git_branch}"
+
+if [[ -f "/usr/bin/open" ]] ; then
+	open "$url"
+else
+	gio open "$url"
+fi
