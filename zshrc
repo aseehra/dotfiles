@@ -73,6 +73,10 @@ if [[ -f $HOME/.zsh/zshrc.local ]] ; then
 	source "$HOME/.zsh/zshrc.local"
 fi
 
+if [[ -f $HOME/.zsh/zshrc.work.local ]] ; then
+	source "$HOME/.zsh/zshrc.work.local"
+fi
+
 export BAT_THEME=TwoDark
 
 if hash rbenv 2>/dev/null ; then
