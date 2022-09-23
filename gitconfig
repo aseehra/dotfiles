@@ -1,3 +1,4 @@
+# http://stackoverflow.com/questions/18257622/why-is-git-core-preloadindex-default-value-false
 [core]
 	# search for core.pager in
 	# <http://www.kernel.org/pub/software/scm/git/docs/git-config.html>
@@ -5,6 +6,8 @@
 	pager = less -$LESS -SFRX -SR
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
+	preloadindex = true
+	deltabasecachelimit = 4g
 
 [color]
 	ui = true
@@ -14,28 +17,36 @@
 	email = seehra.a@gmail.com
 [alias]
 	st = status
+	stu = status -u
 	ci = commit
-  cis = commit --squash
-  cif = commit --fixup
+	cis = commit --squash
+	cif = commit --fixup
 	co = checkout
 	hist = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short
 	hista = log --pretty=format:\"%C(auto) %h %ad | %s [%an] %d\" --graph --date=short --all
-  rbi = rebase -ir --autosquash
-  rbc = rebase --continue
-  rba = rebase --abort
+	rbi = rebase -ir --autosquash
+	rbc = rebase --continue
+	rba = rebase --abort
 	br = branch
 	dump = cat-file -p
 	type = cat-file -t
-  hub = "!GitHub.zsh"
+	hub = "!GitHub.zsh"
 	lg = log --oneline --all --graph --decorate
-  br-cleanup = !git remote prune origin && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
-  pushfff = push --force-with-lease
+	br-cleanup = !git remote prune origin && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
+	br-cleanup-f = !git remote prune origin && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+	pushfff = push --force-with-lease
+	br-fetch = "!rf() { git config --add remote.origin.fetch +refs/heads/$1:refs/remotes/origin/$1 ; git fetch origin +$1:refs/remotes/origin/$1 ; } ; rf"
+	br-purge = "!rp() { git config --unset remote.origin.fetch \".*$1.*\" ; git update-ref -d refs/remotes/origin/$1 ; } ; rp"
+	start = commit --allow-empty -m \"[ci skip] Start\"
+	pr = "!gh pr view -w"
+	pr-create = "!gh pr create -w"
 [push]
 	default = simple
 [diff]
-  submodule = log
+	submodule = log
 [status]
-  submoduleSummary = true
+	submoduleSummary = true
+	showUntrackedFiles = no
 [fetch]
 	prune = true
 [pull]
@@ -45,3 +56,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[feature]
+	manyfiles = true
+[help]
+	autocorrect = true
