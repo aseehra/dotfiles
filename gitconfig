@@ -1,13 +1,15 @@
-# http://stackoverflow.com/questions/18257622/why-is-git-core-preloadindex-default-value-false
 [core]
 	# search for core.pager in
 	# <http://www.kernel.org/pub/software/scm/git/docs/git-config.html>
 	# to see why we use this convoluted syntax
 	pager = less -$LESS -SFRX -SR
+	; pager = delta
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
+	# http://stackoverflow.com/questions/18257622/why-is-git-core-preloadindex-default-value-false
 	preloadindex = true
 	deltabasecachelimit = 4g
+	fsmonitor = true
 
 [color]
 	ui = true
@@ -15,6 +17,7 @@
 [user]
 	name = Arun Seehra
 	email = seehra.a@gmail.com
+
 [alias]
 	st = status
 	stu = status -u
@@ -44,6 +47,8 @@
 	default = simple
 [diff]
 	submodule = log
+	algorithm = histogram
+	colorMoved = default
 [status]
 	submoduleSummary = true
 	showUntrackedFiles = no
@@ -59,4 +64,22 @@
 [feature]
 	manyfiles = true
 [help]
-	autocorrect = true
+	autocorrect = 9
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[index]
+	threads = true
+[checkout]
+	workers = -1
+[interactive]
+	diffFilter = delta --color-only
+; [delta]
+	; navigate = true
+	; light = false
+[rerere]
+	enabled = false
+[merge]
+	conflictstyle = zdiff3
+
+[includeIf "gitdir:~/stripe/**"]
+	path = ~/.dotfiles/gitconfig.work
