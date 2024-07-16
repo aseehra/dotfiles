@@ -2,9 +2,9 @@
 PS1="[%n@%m:%C]$ "
 autoload -U promptinit
 promptinit
-if [[ -f $HOME/.zsh/prompt/git/zshrc.sh ]] ; then
-	source $HOME/.zsh/prompt/git/zshrc.sh
-fi
+# if [[ -f $HOME/.zsh/prompt/git/zshrc.sh ]] ; then
+	# source $HOME/.zsh/prompt/git/zshrc.sh
+# fi
 prompt aseehra
 #RPS1="[%?]"
 
@@ -86,3 +86,12 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# START - Managed by chef cookbook stripe_cpe_bin
+alias tc='/usr/local/stripe/bin/test_cookbook'
+alias cz='/usr/local/stripe/bin/chef-zero'
+alias cookit='tc && cz'
+# STOP - Managed by chef cookbook stripe_cpe_bin

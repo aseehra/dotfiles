@@ -8,7 +8,7 @@ if [[ -d $HOME/.zsh/prompt ]] ; then
 fi
 
 # Load local path
-typeset -U path
+typeset -aU path
 if [[ -d $HOME/.local/bin ]] ; then
 	path=( $HOME/.local/bin $path )
 fi

@@ -41,7 +41,7 @@ prompt_aseehra_setup () {
 		ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 		ZSH_THEME_GIT_PROMPT_SUFFIX=""
 		ZSH_THEME_GIT_PROMPT_LOCAL=""
-		RPS1='$(git_super_status)'
+		# RPS1='$(git_super_status)'
 	fi
 }
 

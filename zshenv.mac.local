@@ -1,4 +1,4 @@
-export EDITOR=/opt/bin/vim
+export EDITOR=/opt/homebrew/bin/vim
 if [[ -f $HOME/.brew-token ]] ; then
 	source $HOME/.brew-token
 fi
