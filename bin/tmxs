@@ -1,3 +1,21 @@
 #!/bin/sh
 
-tmux new -c "${PWD}/$1" -t $1
+# Resolve directory to absolute path (default to current dir)
+dir=$(cd "${1:-.}" && pwd)
+
+# Use basename as session name, sanitize spaces/dots for tmux
+session=$(basename "$dir" | tr ' .' '__')
+
+if tmux has-session -t "=$session" 2>/dev/null; then
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t "=$session"
+    else
+        tmux attach-session -t "=$session"
+    fi
+else
+    if [ -n "$TMUX" ]; then
+        tmux new-session -ds "$session" -c "$dir" && tmux switch-client -t "=$session"
+    else
+        tmux new-session -s "$session" -c "$dir"
+    fi
+fi
