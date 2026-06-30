@@ -31,6 +31,8 @@
     ~/.zsh/base16-thirtyfivemm-dark-shell.sh: 'zsh/base16-thirtyfivemm-dark-shell.sh'
     ~/.zsh/prompt/prompt_aseehra_setup: 'zsh/prompt/prompt_aseehra_setup'
     ~/.zsh/prompt/git: 'zsh/prompt/zsh-git-prompt'
+    ~/.zsh/site-functions/_git: 'zsh/site-functions/_git'
+    ~/.zsh/site-functions/git-completion.bash: 'zsh/site-functions/git-completion.bash'
     ~/.tmux.conf: 'tmux.conf'
     ~/.local/bin/GitHub.zsh: 'bin/GitHub.zsh'
     ~/.get_iplayer/options: 'get_iplayer-options'

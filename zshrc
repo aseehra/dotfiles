@@ -2,15 +2,16 @@
 PS1="[%n@%m:%C]$ "
 autoload -U promptinit
 promptinit
-# if [[ -f $HOME/.zsh/prompt/git/zshrc.sh ]] ; then
-	# source $HOME/.zsh/prompt/git/zshrc.sh
-# fi
 prompt aseehra
 #RPS1="[%?]"
 
 # Add additional completions
 if [[ -d $HOME/.zsh/site-functions ]] ; then
 	fpath=($HOME/.zsh/site-functions $fpath)
+fi
+
+if [[ -f $HOME/.zsh/site-functions/git-completion.bash ]] ; then
+	zstyle ':completion:*:*:git:*' script $HOME/.zsh/site-functions/git-completion.bash
 fi
 
 if [[ -f $HOME/.zsh/aliases ]] ; then
@@ -48,6 +49,7 @@ NO_NOMATCH			\
 
 #COMPLETIONS
 autoload -U compinit
+autoload _git
 compinit
 
 setopt				\
